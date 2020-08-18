@@ -1,2 +1,7 @@
-org\example\MyUI.class
-org\example\MyUI$MyUIServlet.class
+navigator\home.class
+utils\Views.class
+ui\views\NotLoggedUserViews\MainView.class
+navigator\home$MyUIServlet.class
+ui\panel\TopPanel.class
+ui\panel\BottomPanel.class
+ui\views\NotLoggedUserViews\LoginView.class
