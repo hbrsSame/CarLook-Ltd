@@ -1,7 +1,10 @@
 navigator\home.class
 utils\Views.class
-ui\views\NotLoggedUserViews\MainView.class
 navigator\home$MyUIServlet.class
-ui\panel\TopPanel.class
+dao\LoginDAO.class
 ui\panel\BottomPanel.class
 ui\views\NotLoggedUserViews\LoginView.class
+ui\views\NotLoggedUserViews\MainView.class
+ui\panel\TopPanel.class
+database\JDBC.class
+exceptions\DatabaseException.class

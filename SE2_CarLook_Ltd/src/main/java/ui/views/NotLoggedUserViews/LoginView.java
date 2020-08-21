@@ -3,6 +3,7 @@ package ui.views.NotLoggedUserViews;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;
 import com.vaadin.ui.*;
+import dao.LoginDAO;
 import utils.Views;
 
 public class LoginView extends VerticalLayout implements View {
@@ -22,12 +23,12 @@ public class LoginView extends VerticalLayout implements View {
         });
 
         loginForm.addLoginListener(e->{
-            if(e.getLoginParameter("username").equals("admin") & e.getLoginParameter("password").equals("admin")){
-                UI.getCurrent().getNavigator().navigateTo(Views.MainView);
-            }else{
-                Notification.show("Errror","Username oder Password falsch", Notification.Type.WARNING_MESSAGE);
-            }
-
+           if( LoginDAO.getInstance().loginCheck(e.getLoginParameter("username")) ){
+               UI.getCurrent().getNavigator().navigateTo(Views.MainView);
+           }
+           else{
+               Notification.show("ERROR", "Anmeldeversuch fehlgeschlagen", Notification.Type.ERROR_MESSAGE);
+           }
         });
 
         HorizontalLayout coponentLayout = new HorizontalLayout();
