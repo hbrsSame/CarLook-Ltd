@@ -2,15 +2,24 @@ package ui.views.NotLoggedUserViews;
 
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;
+import com.vaadin.server.VaadinSession;
 import com.vaadin.ui.*;
+import control.LoginControl;
 import dao.LoginDAO;
+import dto.UserLoginDTO;
+import entity.User;
+import entity.Vertriebler;
+import ui.panel.BottomPanel;
+import ui.panel.TopPanel;
+import utils.Roles;
 import utils.Views;
 
 public class LoginView extends VerticalLayout implements View {
 
     public void enter(ViewChangeListener.ViewChangeEvent event){
-
+        this.addComponent(new TopPanel());
         this.setUp();
+        this.addComponent(new BottomPanel());
     }
 
     private void setUp(){
@@ -23,18 +32,21 @@ public class LoginView extends VerticalLayout implements View {
         });
 
         loginForm.addLoginListener(e->{
-           if( LoginDAO.getInstance().loginCheck(e.getLoginParameter("username")) ){
-               UI.getCurrent().getNavigator().navigateTo(Views.MainView);
-           }
-           else{
-               Notification.show("ERROR", "Anmeldeversuch fehlgeschlagen", Notification.Type.ERROR_MESSAGE);
-           }
+            UserLoginDTO currentUser = new UserLoginDTO();
+            currentUser.setUsername(e.getLoginParameter("username"));
+            currentUser.setPassword(e.getLoginParameter("password"));
+
+            if(LoginControl.checkAuthentication(currentUser)){
+                UI.getCurrent().getNavigator().navigateTo(Views.MainView);
+            }
+            else{
+                Notification.show("Error", "Username oder Password falsch", Notification.Type.WARNING_MESSAGE);
+            }
         });
 
-        HorizontalLayout coponentLayout = new HorizontalLayout();
+        VerticalLayout coponentLayout = new VerticalLayout();
         coponentLayout.addComponents(loginForm, MainView);
         coponentLayout.setComponentAlignment(loginForm, Alignment.MIDDLE_CENTER);
-        coponentLayout.setComponentAlignment(MainView,Alignment.TOP_RIGHT);
 
         this.addComponent(coponentLayout);
     }
