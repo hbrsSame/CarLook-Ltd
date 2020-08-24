@@ -30,6 +30,13 @@ public abstract class User {
     }
 
     private String password;
+    private String repeatPassword;
 
+    public String getRepeatPassword() {
+        return repeatPassword;
+    }
 
+    public void setRepeatPassword(String repeatPassword) {
+        this.repeatPassword = repeatPassword;
+    }
 }
