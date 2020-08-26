@@ -8,6 +8,7 @@ import control.SessionControl;
 import entity.Auto;
 import exceptions.SessionException;
 import models.factory.ComponentFactory;
+import models.factory.ViewFactory;
 import ui.panel.BottomPanel;
 import ui.panel.TopPanel;
 import utils.Views;
@@ -18,8 +19,8 @@ public class MainView extends VerticalLayout implements View {
 
     public void enter(ViewChangeListener.ViewChangeEvent event){
         try {
-            SessionControl.controlForNotLoggedSession();
-            this.addComponent( new TopPanel());
+            SessionControl.controlForLoggedUsers();
+            this.addComponent(ViewFactory.createTopPanelForVerticalLayout() );
             this.setUp();
             this.addComponent( new BottomPanel() );
         } catch (SessionException e) {
@@ -30,9 +31,10 @@ public class MainView extends VerticalLayout implements View {
     }
 
     private void setUp(){
-        Label Willkommen = new Label("<h1 style=\"text-align: center; color: #000000;\">Willkommen auf CarLook!</h1>\n" +
-                "<p>Ihre Nr 1. Suchplattform für Autos auf dem Markt. Registrieren Sie sich heute noch</p>\n" +
-                "<p>und profitieren Sie von über 100 Vorteilen als Endkunde und Vertriebler &nbsp;</p>\n" +
+        Label Willkommen = new Label("<h1 style=\"text-align: center; color: #000000;\">Suchen Sie heute noch ein Auto!</h1>\n" +
+                "<p>Geben Sie in der Suche die Marke, das Baujahr, oder das Modell ein um ein Auto zu finden</p>\n" +
+                "<p>Klicken Sie auf mehr Informationen, wenn Sie genauere Details über das Auto einsehen möchten! &nbsp;</p>\n" +
+                "<p>Klicken Sie auf Reservieren/Buchen, um ein Auto zu reservieren und anschließend zu buchen! &nbsp;</p>\n" +
                 "<!-- Dieser kommentar ist nur im quelltext-editor sichtbar. -->\n" +
                 "<p></p>", ContentMode.HTML);
 
@@ -41,7 +43,7 @@ public class MainView extends VerticalLayout implements View {
 
         // Suchfunktion Textfeld
         TextField SucheAutosFeld = new TextField();
-        SucheAutosFeld.setPlaceholder("Suche Eine Stellenausschreibung");
+        SucheAutosFeld.setPlaceholder("Nach Autos suchen");
         SucheAutosFeld.setHeight("60");
         SucheAutosFeld.setWidth("850");
 
@@ -52,6 +54,8 @@ public class MainView extends VerticalLayout implements View {
 
         Button mehrButton = ComponentFactory.createButtonWithCaption("Mehr Informationen");
         Button bewerben = ComponentFactory.createButtonWithCaption("Auto mieten");
+
+
 
         HorizontalLayout horizontalLayout = new HorizontalLayout();
 
@@ -64,37 +68,15 @@ public class MainView extends VerticalLayout implements View {
 
         HorizontalLayout SucheLayout = new HorizontalLayout();
         SucheLayout.addComponent(SucheAutosFeld);
-        SucheLayout.setComponentAlignment(SucheAutosFeld, Alignment.MIDDLE_LEFT);
-        SucheLayout.addComponent(SucheAutosFeld);
-        SucheLayout.setComponentAlignment(SucheAutosFeld, Alignment.BOTTOM_RIGHT);
 
+        this.addComponent( new VerticalLayout() );
         this.addComponent(SucheLayout);
-        this.setComponentAlignment(SucheLayout,Alignment.MIDDLE_CENTER);
+        this.setComponentAlignment(SucheLayout,Alignment.BOTTOM_CENTER);
 
         this.addComponent(ergSuche);
         this.addComponent(horizontalLayout);
         this.setComponentAlignment(horizontalLayout,Alignment.MIDDLE_CENTER);
 
-        Button welcome = new Button("Willkommen");
-        welcome.setCaption("Willkommen");
-
-        Button LoginView = new Button("LoginView");
-
-        LoginView.addClickListener(e->{
-            UI.getCurrent().getNavigator().navigateTo(Views.LoginView);
-        });
-
-        TextField FirstTextField = new TextField();
-        FirstTextField.setCaption("FirstTextField");
-
-        VerticalLayout componentLayout = new VerticalLayout();
-        componentLayout.addComponents(FirstTextField, welcome, LoginView);
-        componentLayout.setComponentAlignment(FirstTextField, Alignment.TOP_CENTER);
-        componentLayout.setComponentAlignment(welcome, Alignment.TOP_CENTER);
-        componentLayout.setComponentAlignment(LoginView, Alignment.MIDDLE_CENTER);
-
-        this.addComponent(componentLayout);
-        this.setSizeFull();
         setMargin(true);
     }
 

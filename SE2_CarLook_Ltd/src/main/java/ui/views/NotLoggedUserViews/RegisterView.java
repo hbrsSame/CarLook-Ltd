@@ -1,17 +1,21 @@
 package ui.views.NotLoggedUserViews;
 
+import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;
 import com.vaadin.ui.*;
 import control.RegisterControl;
 import control.SessionControl;
 import entity.Endkunde;
+import entity.User;
+import entity.Vertriebler;
 import exceptions.RegisterException;
 import exceptions.SessionException;
 import models.factory.ComponentFactory;
 import ui.panel.BottomPanel;
 import ui.panel.TopPanel;
+import utils.Roles;
 
-public class RegisterView extends VerticalLayout {
+public class RegisterView extends VerticalLayout implements View {
 
     public void enter(ViewChangeListener.ViewChangeEvent event) {
         try{
@@ -27,11 +31,14 @@ public class RegisterView extends VerticalLayout {
     private void setup(){
         TabSheet tabSheet = new TabSheet();
         tabSheet.setWidth("1000");
+        tabSheet.addTab(this.createLayoutForEndkunde(Roles.ENDKUNDE), "Registrieren als Endkunde");
+        tabSheet.addTab(this.createLayoutForEndkunde(Roles.VERTRIEBLER), "Registrieren als Vertriebler");
 
-
+        this.addComponent(tabSheet);
+        this.setComponentAlignment(tabSheet, Alignment.MIDDLE_CENTER);
     }
 
-    private VerticalLayout createLayoutForEndkunde(){
+    private VerticalLayout createLayoutForEndkunde(String type){
         VerticalLayout EndkundeLayout = new VerticalLayout();
 
         TextField username = ComponentFactory.createTextFieldWithCaption("E-mail/Username");
@@ -40,17 +47,33 @@ public class RegisterView extends VerticalLayout {
         TextField name = ComponentFactory.createTextFieldWithCaption("Name");
         Button registerButton = ComponentFactory.createButtonWithCaption("Jetzt regestrieren");
 
-        registerButton.addClickListener(e->{
-            Endkunde user = new Endkunde();
+        String valueOfName = name.getValue();
 
-            user.setUsername(username.getValue());
-            user.setPassword(password.getValue());
-            user.setRepeatPassword(repeatPassword.getValue());
-            user.setName(name.getValue());
+        registerButton.addClickListener(e->{
+
+            User user = null;
+            if(type.equals("Endkunde")){
+                user = new Endkunde();
+
+                user.setUsername(username.getValue());
+                user.setPassword(password.getValue());
+                user.setRepeatPassword(repeatPassword.getValue());
+                ((Endkunde) user).setName(name.getValue());
+
+            }
+            if(type.equals("Vertriebler")){
+                user = new Vertriebler();
+
+                user.setUsername(username.getValue());
+                user.setPassword(password.getValue());
+                user.setRepeatPassword(repeatPassword.getValue());
+                ((Vertriebler) user).setName(name.getValue());
+            }
+
 
             try {
                 if(RegisterControl.registerUser(user) ) {
-                    Notification.show("Sucess", "Hallo " + user.getName() + "! Sie haben sich erfolgreich regestriert! Wilkommen bei CarLook",
+                    Notification.show("Sucess", "Hallo " + valueOfName + "! Sie haben sich erfolgreich regestriert! Wilkommen bei CarLook",
                     Notification.Type.WARNING_MESSAGE);
                 }
             } catch (RegisterException registerException) {

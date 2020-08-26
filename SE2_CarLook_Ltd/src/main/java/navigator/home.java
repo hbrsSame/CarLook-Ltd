@@ -15,6 +15,7 @@ import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 import ui.views.NotLoggedUserViews.LoginView;
 import ui.views.NotLoggedUserViews.MainView;
+import ui.views.NotLoggedUserViews.RegisterView;
 import utils.Views;
 
 /**
@@ -35,10 +36,11 @@ public class home extends UI {
         Navigator pageNavigator = new Navigator(this, this);
         pageNavigator.addView(Views.LoginView, LoginView.class);
         pageNavigator.addView(Views.MainView, MainView.class);
+        pageNavigator.addView(Views.RegisterView, RegisterView.class);
 
 
         //Eine Page als Startpage z.B. LoginView
-        UI.getCurrent().getNavigator().navigateTo(Views.MainView);
+        UI.getCurrent().getNavigator().navigateTo(Views.LoginView);
     }
 
     @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
