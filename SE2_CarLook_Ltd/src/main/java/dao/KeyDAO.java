@@ -2,10 +2,8 @@ package dao;
 
 import database.JDBC;
 import dto.UserLoginDTO;
-import entity.Endkunde;
-import entity.User;
-import entity.Vertriebler;
 import exceptions.DatabaseException;
+import utils.SQL;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,7 +16,7 @@ public class KeyDAO {
         int pk = 0;
         PreparedStatement data = null;
         try {
-            data = JDBC.getInstance().getPreparedStatement("SELECT vertriebler_id FROM carlook.vertriebler WHERE username_fk = ?");
+            data = JDBC.getInstance().getPreparedStatement(SQL.getVertrieblerID);
             data.setString(1, getPKFromUser(user.getUsername()));
 
             ResultSet result = data.executeQuery();
@@ -41,7 +39,7 @@ public class KeyDAO {
         int pk = 0;
         PreparedStatement data = null;
         try {
-            data = JDBC.getInstance().getPreparedStatement("SELECT endkunde_id FROM carlook.endkunde WHERE username_fk = ?");
+            data = JDBC.getInstance().getPreparedStatement(SQL.getEndkundeID);
             data.setString(1, getPKFromUser(user.getUsername()));
 
             ResultSet result = data.executeQuery();
@@ -64,7 +62,7 @@ public class KeyDAO {
         String pk = "";
         PreparedStatement data = null;
         try {
-            data = JDBC.getInstance().getPreparedStatement("SELECT username FROM carlook.user WHERE username = ?");
+            data = JDBC.getInstance().getPreparedStatement(SQL.getUsernameFromUser);
             data.setString(1, username);
 
             ResultSet result = data.executeQuery();

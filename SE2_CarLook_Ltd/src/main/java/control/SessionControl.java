@@ -11,10 +11,8 @@ import utils.Views;
 
 public class SessionControl {
 
-    private static User validUserSesion = (User) UI.getCurrent().getSession().getAttribute(Roles.CURRENT_USER);
-
-
     public static boolean controlForNotLoggedSession() throws SessionException{
+        User validUserSesion = (User) UI.getCurrent().getSession().getAttribute(Roles.CURRENT_USER);
         boolean value = true;
         if(validUserSesion != null){
             value = false;
@@ -24,6 +22,7 @@ public class SessionControl {
     }
 
     public static boolean controlLoggedSessionForEndkunde() {
+        User validUserSesion = (User) UI.getCurrent().getSession().getAttribute(Roles.CURRENT_USER);
         boolean value = false;
 
         if(validUserSesion instanceof Endkunde ){
@@ -33,6 +32,7 @@ public class SessionControl {
     }
 
     public static boolean controlLoggedSessionForVertriebler() {
+        User validUserSesion = (User) UI.getCurrent().getSession().getAttribute(Roles.CURRENT_USER);
         boolean value = false;
 
         if(validUserSesion instanceof Vertriebler){
@@ -42,6 +42,7 @@ public class SessionControl {
     }
 
     public static boolean controlForLoggedUsers() throws SessionException {
+        User validUserSesion = (User) UI.getCurrent().getSession().getAttribute(Roles.CURRENT_USER);
         boolean value = true;
         if(validUserSesion == null) {
             UI.getCurrent().getNavigator().navigateTo(Views.LoginView);

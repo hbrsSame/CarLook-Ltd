@@ -1,10 +1,13 @@
+exceptions\UserAlreadyExistException.class
 navigator\home.class
 dao\KeyDAO.class
+exceptions\NoUserFoundException.class
 ui\views\NotLoggedUserViews\RegisterView.class
 utils\Views.class
 navigator\home$MyUIServlet.class
 ui\panel\BottomPanel.class
 ui\views\NotLoggedUserViews\LoginView.class
+utils\SQL.class
 control\LoginControl.class
 models\factory\ComponentFactory.class
 control\SessionControl.class

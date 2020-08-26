@@ -27,7 +27,7 @@ public class LoginView extends VerticalLayout implements View {
             this.setUp();
             this.addComponent(new BottomPanel());
         } catch (SessionException e) {
-            Notification.show("Error", e.getMessages(), Notification.Type.WARNING_MESSAGE);
+            Notification.show("Error", e.getMessage(), Notification.Type.WARNING_MESSAGE);
         }
 
     }

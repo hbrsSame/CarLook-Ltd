@@ -38,28 +38,28 @@ public class TopPanel extends VerticalLayout {
                 loggedUserMenuItem = menuBar.addItem("Mein Konto");
 
                 if(validUser instanceof Endkunde) {
-                    angemeldetAls = new Label("angemeldet als: " + ((Endkunde) validUser).getName());
+                    angemeldetAls = new Label("angemeldet als Endkunde: " + ( (Endkunde) validUser).getName() + " -- Account-Typ: Endkunde" );
                     loggedUserMenuItem.addItem("Autos suchen", FontAwesome.SEARCH, e ->{
-                        UI.getCurrent().getNavigator().navigateTo(Views.SucheAutosView);
+                        UI.getCurrent().getNavigator().navigateTo(Views.MainView);
                     });
 
                     loggedUserMenuItem.addItem("Autos reservieren", FontAwesome.BOOK, e->{
-                        UI.getCurrent().getNavigator().navigateTo(Views.ReserviereAutoView);
+                        //UI.getCurrent().getNavigator().navigateTo(Views.ReserviereAutoView);
                     });
 
                     loggedUserMenuItem.addItem("Reservierungen anzeigen", FontAwesome.DASHBOARD, e->{
-                        UI.getCurrent().getNavigator().navigateTo(Views.ReservierungenView);
+                        //UI.getCurrent().getNavigator().navigateTo(Views.ReservierungenView);
                     });
                 }
 
                 if(validUser instanceof Vertriebler){
-                    angemeldetAls = new Label("angemeldet als: " + ((Vertriebler) validUser).getName());
+                    angemeldetAls = new Label("angemeldet als: " + ((Vertriebler) validUser).getName() + " -- Account-Typ: Vertriebler");
                     loggedUserMenuItem.addItem("Autos eintragen", FontAwesome.REGISTERED, e->{
-                        UI.getCurrent().getNavigator().navigateTo(Views.AutosEintragenView);
+                       // UI.getCurrent().getNavigator().navigateTo(Views.AutosEintragenView);
                     });
 
                     loggedUserMenuItem.addItem("Eingetragen Autos", FontAwesome.DATABASE, e->{
-                        UI.getCurrent().getNavigator().navigateTo(Views.EingetrageneAutosView);
+                        //UI.getCurrent().getNavigator().navigateTo(Views.EingetrageneAutosView);
                     });
                 }
 
@@ -84,17 +84,15 @@ public class TopPanel extends VerticalLayout {
         }
 
 
-        VerticalLayout a = new VerticalLayout();
-        a.addComponent(logo);
-        a.setComponentAlignment(logo, Alignment.MIDDLE_CENTER);
+
         HorizontalLayout topMenuBar = new HorizontalLayout();
         topMenuBar.addComponent(angemeldetAls);
         topMenuBar.addComponent(menuBar);
         topMenuBar.setComponentAlignment(menuBar, Alignment.MIDDLE_CENTER);
         topMenuBar.setComponentAlignment(angemeldetAls, Alignment.MIDDLE_CENTER);
 
-        this.addComponent(a);
-        this.setComponentAlignment(a, Alignment.MIDDLE_CENTER);
+        this.addComponent(logo);
+        this.setComponentAlignment(logo, Alignment.TOP_CENTER);
         this.addComponent(topMenuBar);
         this.setComponentAlignment(topMenuBar,Alignment.MIDDLE_CENTER);
     }

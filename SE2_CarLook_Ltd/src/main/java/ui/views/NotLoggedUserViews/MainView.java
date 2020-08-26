@@ -10,8 +10,6 @@ import exceptions.SessionException;
 import models.factory.ComponentFactory;
 import models.factory.ViewFactory;
 import ui.panel.BottomPanel;
-import ui.panel.TopPanel;
-import utils.Views;
 
 import static models.factory.GridFactory.getConfiguredGrid;
 
@@ -24,9 +22,8 @@ public class MainView extends VerticalLayout implements View {
             this.setUp();
             this.addComponent( new BottomPanel() );
         } catch (SessionException e) {
-            Notification.show("Error", e.getMessages(), Notification.Type.WARNING_MESSAGE);
+            Notification.show("Error", e.getMessage(), Notification.Type.WARNING_MESSAGE);
         }
-
 
     }
 

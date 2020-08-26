@@ -1,13 +1,12 @@
 package exceptions;
 
-public class RegisterException extends Exception {
+public class NoUserFoundException extends Exception {
 
     private String messages;
 
-    public RegisterException ( String messages ) {
+
+    public NoUserFoundException(String messages){
         super(messages);
         this.messages = messages;
-
     }
-
 }

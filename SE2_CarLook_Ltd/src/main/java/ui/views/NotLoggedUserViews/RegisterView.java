@@ -8,12 +8,15 @@ import control.SessionControl;
 import entity.Endkunde;
 import entity.User;
 import entity.Vertriebler;
+import exceptions.NoUserFoundException;
 import exceptions.RegisterException;
 import exceptions.SessionException;
+import exceptions.UserAlreadyExistException;
 import models.factory.ComponentFactory;
 import ui.panel.BottomPanel;
 import ui.panel.TopPanel;
 import utils.Roles;
+import utils.Views;
 
 public class RegisterView extends VerticalLayout implements View {
 
@@ -24,7 +27,7 @@ public class RegisterView extends VerticalLayout implements View {
             this.setup();
             this.addComponent( new BottomPanel() );
         }catch ( SessionException e){
-            Notification.show("Error", e.getMessages(), Notification.Type.WARNING_MESSAGE);
+            Notification.show("Error", e.getMessage(), Notification.Type.WARNING_MESSAGE);
         }
 
     }
@@ -35,7 +38,7 @@ public class RegisterView extends VerticalLayout implements View {
         tabSheet.addTab(this.createLayoutForEndkunde(Roles.VERTRIEBLER), "Registrieren als Vertriebler");
 
         this.addComponent(tabSheet);
-        this.setComponentAlignment(tabSheet, Alignment.MIDDLE_CENTER);
+        this.setComponentAlignment(tabSheet, Alignment.MIDDLE_RIGHT);
     }
 
     private VerticalLayout createLayoutForEndkunde(String type){
@@ -75,19 +78,20 @@ public class RegisterView extends VerticalLayout implements View {
                 if(RegisterControl.registerUser(user) ) {
                     Notification.show("Sucess", "Hallo " + valueOfName + "! Sie haben sich erfolgreich regestriert! Wilkommen bei CarLook",
                     Notification.Type.WARNING_MESSAGE);
+                    UI.getCurrent().getNavigator().navigateTo(Views.LoginView);
                 }
-            } catch (RegisterException registerException) {
-                Notification.show("Error", registerException.getMessages(), Notification.Type.WARNING_MESSAGE);
+            } catch (RegisterException | NoUserFoundException | UserAlreadyExistException exception) {
+                Notification.show("Error", exception.getMessage(), Notification.Type.WARNING_MESSAGE);
             }
 
         });
 
         EndkundeLayout.addComponents(username,password,repeatPassword,name,registerButton);
-        EndkundeLayout.setComponentAlignment(username, Alignment.MIDDLE_CENTER);
-        EndkundeLayout.setComponentAlignment(password, Alignment.MIDDLE_CENTER);
-        EndkundeLayout.setComponentAlignment(repeatPassword, Alignment.MIDDLE_CENTER);
-        EndkundeLayout.setComponentAlignment(name, Alignment.MIDDLE_CENTER);
-        EndkundeLayout.setComponentAlignment(registerButton, Alignment.MIDDLE_CENTER);
+        EndkundeLayout.setComponentAlignment(username, Alignment.MIDDLE_LEFT);
+        EndkundeLayout.setComponentAlignment(password, Alignment.MIDDLE_LEFT);
+        EndkundeLayout.setComponentAlignment(repeatPassword, Alignment.MIDDLE_LEFT);
+        EndkundeLayout.setComponentAlignment(name, Alignment.MIDDLE_LEFT);
+        EndkundeLayout.setComponentAlignment(registerButton, Alignment.MIDDLE_LEFT);
 
         return EndkundeLayout;
     }

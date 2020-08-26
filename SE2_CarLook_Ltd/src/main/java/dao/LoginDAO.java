@@ -6,13 +6,13 @@ import entity.Endkunde;
 import entity.User;
 import entity.Vertriebler;
 import exceptions.DatabaseException;
+import utils.SQL;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import static dao.KeyDAO.getPKFromUser;
-import static dao.KeyDAO.getPKFromVertriebler;
 
 public class LoginDAO {
 
@@ -46,7 +46,7 @@ public class LoginDAO {
         PreparedStatement data = null;
         Vertriebler vertriebler = new Vertriebler();
         try {
-            data = JDBC.getInstance().getPreparedStatement("SELECT * FROM carlook.user WHERE username = ?");
+            data = JDBC.getInstance().getPreparedStatement(SQL.GetDataFromUser);
             data.setString(1, user.getUsername());
             ResultSet result = data.executeQuery();
 
@@ -56,16 +56,17 @@ public class LoginDAO {
                 vertriebler.setPassword(result.getString(2));
             }
 
-            data = JDBC.getInstance().getPreparedStatement("SELECT * FROM carlook.vertriebler WHERE username_fk = ?");
+            data = JDBC.getInstance().getPreparedStatement(SQL.GetDataFromVertriebler);
             data.setString(1, getPKFromUser(user.getUsername()));
             result = data.executeQuery();
 
             while(result.next()){
                 vertriebler.setName(result.getString(2));
                 vertriebler.setVertrieblerID(result.getInt(1));
+                return vertriebler;
             }
 
-            return vertriebler;
+
 
         } catch (DatabaseException | SQLException e) {
             e.printStackTrace();
@@ -78,7 +79,7 @@ public class LoginDAO {
         PreparedStatement data = null;
         Endkunde kunde = new Endkunde();
         try {
-            data = JDBC.getInstance().getPreparedStatement("SELECT * FROM carlook.user WHERE username = ?");
+            data = JDBC.getInstance().getPreparedStatement(SQL.GetDataFromUser);
             data.setString(1, user.getUsername());
             ResultSet result = data.executeQuery();
 
@@ -88,16 +89,15 @@ public class LoginDAO {
                 kunde.setPassword(result.getString(2));
             }
 
-            data = JDBC.getInstance().getPreparedStatement("SELECT * FROM carlook.endkunde WHERE username_fk = ?");
+            data = JDBC.getInstance().getPreparedStatement(SQL.GetDataFromEndkunde);
             data.setString(1, getPKFromUser(user.getUsername()));
             result = data.executeQuery();
 
             while(result.next()){
                 kunde.setName(result.getString(2));
                 kunde.setEndkundeID((result.getInt(1)));
+                return kunde;
             }
-
-            return kunde;
 
         } catch (DatabaseException | SQLException e) {
             e.printStackTrace();
