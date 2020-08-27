@@ -44,7 +44,7 @@ public class TopPanel extends VerticalLayout {
                     });
 
                     loggedUserMenuItem.addItem("Autos reservieren", FontAwesome.BOOK, e->{
-                        //UI.getCurrent().getNavigator().navigateTo(Views.ReserviereAutoView);
+                        //UI.getCurrent().getNavigator().navigateTo(Views.BookingCarView);
                     });
 
                     loggedUserMenuItem.addItem("Reservierungen anzeigen", FontAwesome.DASHBOARD, e->{
