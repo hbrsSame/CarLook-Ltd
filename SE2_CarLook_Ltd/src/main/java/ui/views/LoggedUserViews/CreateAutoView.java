@@ -37,7 +37,7 @@ public class CreateAutoView extends VerticalLayout implements View {
         RichTextArea beschreibung = new RichTextArea("Beschreibung");
         Button autoErstellenButton = ComponentFactory.createButtonWithCaption("Jetzt Ihr Auto veröffentlichen");
         Button abbrechen = ComponentFactory.createButtonWithCaption("Abbrechen");
-        Panel panelLayout = new Panel("Stellenanzeige erstellen");
+        Panel panelLayout = new Panel("Ein Auto veröffentlichen");
         VerticalLayout reihe1 = new VerticalLayout();
         VerticalLayout reihe2 = new VerticalLayout();
 
