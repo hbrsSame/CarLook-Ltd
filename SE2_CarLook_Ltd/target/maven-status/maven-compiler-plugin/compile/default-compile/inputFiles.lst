@@ -1,6 +1,7 @@
 C:\Users\Same\Documents\GitHub\CarLook Ltd\CarLook-Ltd\SE2_CarLook_Ltd\src\main\java\control\LoginControl.java
 C:\Users\Same\Documents\GitHub\CarLook Ltd\CarLook-Ltd\SE2_CarLook_Ltd\src\main\java\exceptions\NoUserFoundException.java
 C:\Users\Same\Documents\GitHub\CarLook Ltd\CarLook-Ltd\SE2_CarLook_Ltd\src\main\java\dao\KeyDAO.java
+C:\Users\Same\Documents\GitHub\CarLook Ltd\CarLook-Ltd\SE2_CarLook_Ltd\src\main\java\control\AutoErstellenControl.java
 C:\Users\Same\Documents\GitHub\CarLook Ltd\CarLook-Ltd\SE2_CarLook_Ltd\src\main\java\ui\panel\TopPanel.java
 C:\Users\Same\Documents\GitHub\CarLook Ltd\CarLook-Ltd\SE2_CarLook_Ltd\src\main\java\utils\Views.java
 C:\Users\Same\Documents\GitHub\CarLook Ltd\CarLook-Ltd\SE2_CarLook_Ltd\src\main\java\entity\User.java
@@ -18,6 +19,8 @@ C:\Users\Same\Documents\GitHub\CarLook Ltd\CarLook-Ltd\SE2_CarLook_Ltd\src\main\
 C:\Users\Same\Documents\GitHub\CarLook Ltd\CarLook-Ltd\SE2_CarLook_Ltd\src\main\java\utils\Roles.java
 C:\Users\Same\Documents\GitHub\CarLook Ltd\CarLook-Ltd\SE2_CarLook_Ltd\src\main\java\navigator\home.java
 C:\Users\Same\Documents\GitHub\CarLook Ltd\CarLook-Ltd\SE2_CarLook_Ltd\src\main\java\utils\SQL.java
+C:\Users\Same\Documents\GitHub\CarLook Ltd\CarLook-Ltd\SE2_CarLook_Ltd\src\main\java\dao\AutoDAO.java
+C:\Users\Same\Documents\GitHub\CarLook Ltd\CarLook-Ltd\SE2_CarLook_Ltd\src\main\java\ui\views\LoggedUserViews\MainView.java
 C:\Users\Same\Documents\GitHub\CarLook Ltd\CarLook-Ltd\SE2_CarLook_Ltd\src\main\java\models\test.java
 C:\Users\Same\Documents\GitHub\CarLook Ltd\CarLook-Ltd\SE2_CarLook_Ltd\src\main\java\dao\RegisterDAO.java
 C:\Users\Same\Documents\GitHub\CarLook Ltd\CarLook-Ltd\SE2_CarLook_Ltd\src\main\java\control\RegisterControl.java
@@ -26,7 +29,7 @@ C:\Users\Same\Documents\GitHub\CarLook Ltd\CarLook-Ltd\SE2_CarLook_Ltd\src\main\
 C:\Users\Same\Documents\GitHub\CarLook Ltd\CarLook-Ltd\SE2_CarLook_Ltd\src\main\java\entity\Auto.java
 C:\Users\Same\Documents\GitHub\CarLook Ltd\CarLook-Ltd\SE2_CarLook_Ltd\src\main\java\ui\panel\BottomPanel.java
 C:\Users\Same\Documents\GitHub\CarLook Ltd\CarLook-Ltd\SE2_CarLook_Ltd\src\main\java\database\JDBC.java
+C:\Users\Same\Documents\GitHub\CarLook Ltd\CarLook-Ltd\SE2_CarLook_Ltd\src\main\java\ui\views\LoggedUserViews\CreateAutoView.java
 C:\Users\Same\Documents\GitHub\CarLook Ltd\CarLook-Ltd\SE2_CarLook_Ltd\src\main\java\entity\Endkunde.java
-C:\Users\Same\Documents\GitHub\CarLook Ltd\CarLook-Ltd\SE2_CarLook_Ltd\src\main\java\ui\views\NotLoggedUserViews\MainView.java
 C:\Users\Same\Documents\GitHub\CarLook Ltd\CarLook-Ltd\SE2_CarLook_Ltd\src\main\java\org\example\MyUI.java
 C:\Users\Same\Documents\GitHub\CarLook Ltd\CarLook-Ltd\SE2_CarLook_Ltd\src\main\java\exceptions\UserAlreadyExistException.java

@@ -31,12 +31,14 @@ public class SessionControl {
         return value;
     }
 
-    public static boolean controlLoggedSessionForVertriebler() {
+    public static boolean controlLoggedSessionForVertriebler() throws  SessionException{
         User validUserSesion = (User) UI.getCurrent().getSession().getAttribute(Roles.CURRENT_USER);
         boolean value = false;
 
         if(validUserSesion instanceof Vertriebler){
             value = true;
+        }else{
+            throw new SessionException("Diese Seite ist nur für Vertriebler sichtbar");
         }
         return value;
     }

@@ -9,7 +9,9 @@ public class GridFactory {
         Grid<Auto> grid = new Grid<>(Auto.class);
         grid.removeAllColumns();
 
-        grid.addColumn(autosuche -> autosuche.getName())
+        grid.addColumn(autosuche -> autosuche.getVertriebler_id())
+                .setCaption("Vertriebler_ID").setId("Vertriebler_ID");
+        grid.addColumn(autosuche -> autosuche.getVertriebler_name())
                 .setCaption("Name").setId("Name");
         grid.addColumn(autosuche -> autosuche.getMarke() )
                 .setCaption("Marke").setId("Marke");

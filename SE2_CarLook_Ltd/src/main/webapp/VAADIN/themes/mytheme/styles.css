@@ -2303,7 +2303,7 @@ div.v-layout.v-horizontal.v-widget {
 .mytheme .v-button-friendly {
 	height: 37px;
 	padding: 0 16px;
-	color: #ebf5f2;
+	color: #1a1a1a;
 	font-weight: 400;
 	
 	
@@ -2311,12 +2311,12 @@ div.v-layout.v-horizontal.v-widget {
 	border: 1px solid #362c58;
 	border-top-color: #382d5b;
 	border-bottom-color: #332953;
-	background-color: #29a884;
-	background-image: -webkit-linear-gradient(top, #2aaa87 2%, #26a27e 98%);
-	background-image: linear-gradient(to bottom,#2aaa87 2%, #26a27e 98%);
-	-webkit-box-shadow: inset 0 1px 0 #44bc97;
-	box-shadow: inset 0 1px 0 #44bc97;
-	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05);
+	background-color: #ffffff;
+	background-image: -webkit-linear-gradient(top, white 2%, #fbfbfb 98%);
+	background-image: linear-gradient(to bottom,white 2%, #fbfbfb 98%);
+	-webkit-box-shadow: inset 0 1px 0 white;
+	box-shadow: inset 0 1px 0 white;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .mytheme .v-button-friendly:after {
@@ -2328,17 +2328,17 @@ div.v-layout.v-horizontal.v-widget {
 }
 
 .mytheme .v-button-friendly:hover:after {
-	background-color: rgba(74, 211, 172, 0.1);
+	background-color: rgba(191, 191, 191, 0.1);
 }
 
 .mytheme .v-button-friendly:focus:after {
-	border: inherit;
+	border-color: #4783eb;
 	-webkit-box-shadow: 0 0 0 2px rgba(71, 131, 235, 0.5);
 	box-shadow: 0 0 0 2px rgba(71, 131, 235, 0.5);
 }
 
 .mytheme .v-button-friendly:active:after {
-	background-color: rgba(8, 97, 71, 0.2);
+	background-color: rgba(128, 128, 128, 0.2);
 }
 
 .mytheme .v-button-danger {
@@ -13974,7 +13974,7 @@ div.v-layout.v-horizontal.v-widget {
 .mytheme .v-label-success, .mytheme .v-label-failure {
 	background: #f5fff5;
 	color: #197319;
-	border: 2px solid #29a884;
+	border: 2px solid #ffffff;
 	border-radius: 3px;
 	padding: 7px 19px 7px 37px;
 	font-weight: 400;
@@ -13986,7 +13986,7 @@ div.v-layout.v-horizontal.v-widget {
 	content: "\f00c";
 	margin-right: 0.5em;
 	margin-left: -19px;
-	color: #29a884;
+	color: #ffffff;
 }
 
 .mytheme .v-label-failure {
@@ -14808,11 +14808,11 @@ div.v-layout.v-horizontal.v-widget {
 .mytheme .v-Notification.success, .mytheme .v-Notification.failure {
 	background: #fff;
 	color: #555;
-	border: 2px solid #29a884;
+	border: 2px solid #ffffff;
 }
 
 .mytheme .v-Notification.success .v-Notification-caption, .mytheme .v-Notification.failure .v-Notification-caption {
-	color: #29a884;
+	color: #ffffff;
 	font-weight: 400;
 }
 
@@ -15428,4 +15428,8 @@ div.v-layout.v-horizontal.v-widget {
 	display: inline-block;
 	width: 19px;
 	overflow: hidden;
+}
+
+.mytheme .v-table-row.v-table-row-highlight-green, .mytheme .v-table-row-odd.v-table-row-highlight-green > td {
+	background-color: #00ff00;
 }

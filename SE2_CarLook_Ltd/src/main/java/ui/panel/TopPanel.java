@@ -55,7 +55,7 @@ public class TopPanel extends VerticalLayout {
                 if(validUser instanceof Vertriebler){
                     angemeldetAls = new Label("angemeldet als: " + ((Vertriebler) validUser).getName() + " -- Account-Typ: Vertriebler");
                     loggedUserMenuItem.addItem("Autos eintragen", FontAwesome.REGISTERED, e->{
-                       // UI.getCurrent().getNavigator().navigateTo(Views.AutosEintragenView);
+                        UI.getCurrent().getNavigator().navigateTo(Views.CreateAutoView);
                     });
 
                     loggedUserMenuItem.addItem("Eingetragen Autos", FontAwesome.DATABASE, e->{

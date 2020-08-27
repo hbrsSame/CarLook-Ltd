@@ -8,16 +8,18 @@ navigator\home$MyUIServlet.class
 ui\panel\BottomPanel.class
 ui\views\NotLoggedUserViews\LoginView.class
 utils\SQL.class
+ui\views\LoggedUserViews\CreateAutoView.class
 control\LoginControl.class
 models\factory\ComponentFactory.class
 control\SessionControl.class
 control\RegisterControl.class
-ui\views\NotLoggedUserViews\MainView.class
 models\factory\GridFactory.class
 dto\UserLoginDTO.class
+control\AutoErstellenControl.class
 database\JDBC.class
 exceptions\DatabaseException.class
 utils\Roles.class
+ui\views\LoggedUserViews\MainView.class
 entity\Endkunde.class
 models\factory\ViewFactory.class
 dao\RegisterDAO.class
@@ -26,6 +28,7 @@ entity\Vertriebler.class
 exceptions\RegisterException.class
 entity\User.class
 utils\Path.class
+dao\AutoDAO.class
 ui\panel\TopPanel.class
 exceptions\SessionException.class
 entity\Auto.class

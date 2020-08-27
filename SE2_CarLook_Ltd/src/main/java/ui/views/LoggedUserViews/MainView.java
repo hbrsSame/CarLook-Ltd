@@ -1,9 +1,10 @@
-package ui.views.NotLoggedUserViews;
+package ui.views.LoggedUserViews;
 
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;
 import com.vaadin.shared.ui.ContentMode;
 import com.vaadin.ui.*;
+import control.AutoErstellenControl;
 import control.SessionControl;
 import entity.Auto;
 import exceptions.SessionException;
@@ -45,23 +46,43 @@ public class MainView extends VerticalLayout implements View {
         SucheAutosFeld.setWidth("850");
 
         Grid<Auto> ergSuche = getConfiguredGrid();
-        ergSuche.setVisible(false);
+        ergSuche.setVisible(true);
         ergSuche.setEnabled(true);
         ergSuche.setSizeFull();
 
-        Button mehrButton = ComponentFactory.createButtonWithCaption("Mehr Informationen");
+        Button AlleAutosButton = ComponentFactory.createButtonWithCaption("Alle Autos anzeigen");
         Button bewerben = ComponentFactory.createButtonWithCaption("Auto mieten");
 
 
 
         HorizontalLayout horizontalLayout = new HorizontalLayout();
 
-        horizontalLayout.addComponent(mehrButton);
+        horizontalLayout.addComponent(AlleAutosButton);
         horizontalLayout.addComponent(bewerben);
-        horizontalLayout.setComponentAlignment(mehrButton, Alignment.MIDDLE_RIGHT);
+        horizontalLayout.setComponentAlignment(AlleAutosButton, Alignment.MIDDLE_RIGHT);
         horizontalLayout.setComponentAlignment(bewerben, Alignment.MIDDLE_LEFT);
 
+        ergSuche.setStyleGenerator(t -> "highlight-green");
 
+        SucheAutosFeld.addValueChangeListener(e->{
+            if(SucheAutosFeld.isEmpty()){
+                Notification.show("Error", "Bitte keine leeren oder ungülten Eingaben!", Notification.Type.WARNING_MESSAGE);
+                ergSuche.setItems();
+                return;
+            }
+            ergSuche.setItems(AutoErstellenControl.getAutoWithCriteria(SucheAutosFeld.getValue()));
+        });
+
+        AlleAutosButton.addClickListener(e->{
+            Integer anzahlAutos = AutoErstellenControl.getAllAutos().size();
+            if(anzahlAutos != null){
+                Notification.show("Achtung", "Es wurden " + AutoErstellenControl.getAllAutos().size() +  " Autos gefunden", Notification.Type.WARNING_MESSAGE);
+                ergSuche.setItems(AutoErstellenControl.getAllAutos());
+            }else{
+                Notification.show("Error", "Es wurden keine Autos gefunden!", Notification.Type.WARNING_MESSAGE);
+            }
+
+        });
 
         HorizontalLayout SucheLayout = new HorizontalLayout();
         SucheLayout.addComponent(SucheAutosFeld);

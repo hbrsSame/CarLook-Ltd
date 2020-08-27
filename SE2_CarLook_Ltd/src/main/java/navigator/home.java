@@ -8,14 +8,13 @@ import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.navigator.Navigator;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
-import com.vaadin.ui.Button;
-import com.vaadin.ui.Label;
-import com.vaadin.ui.TextField;
 import com.vaadin.ui.UI;
-import com.vaadin.ui.VerticalLayout;
+import entity.User;
+import ui.views.LoggedUserViews.CreateAutoView;
 import ui.views.NotLoggedUserViews.LoginView;
-import ui.views.NotLoggedUserViews.MainView;
+import ui.views.LoggedUserViews.MainView;
 import ui.views.NotLoggedUserViews.RegisterView;
+import utils.Roles;
 import utils.Views;
 
 /**
@@ -37,10 +36,18 @@ public class home extends UI {
         pageNavigator.addView(Views.LoginView, LoginView.class);
         pageNavigator.addView(Views.MainView, MainView.class);
         pageNavigator.addView(Views.RegisterView, RegisterView.class);
+        pageNavigator.addView(Views.CreateAutoView, CreateAutoView.class);
 
 
         //Eine Page als Startpage z.B. LoginView
-        UI.getCurrent().getNavigator().navigateTo(Views.LoginView);
+        User UserInstance = (User) UI.getCurrent().getSession().getAttribute(Roles.CURRENT_USER);
+        if(UserInstance == null){
+            UI.getCurrent().getNavigator().navigateTo(Views.LoginView);
+        }else{
+            UI.getCurrent().getNavigator().navigateTo(Views.MainView);
+        }
+
+
     }
 
     @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)

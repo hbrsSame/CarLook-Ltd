@@ -98,7 +98,7 @@ public class LoginDAO {
                 kunde.setEndkundeID((result.getInt(1)));
                 return kunde;
             }
-
+            JDBC.getInstance().closeConnection();
         } catch (DatabaseException | SQLException e) {
             e.printStackTrace();
         }

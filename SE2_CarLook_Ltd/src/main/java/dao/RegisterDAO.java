@@ -50,6 +50,7 @@ public class RegisterDAO {
                 querry.execute();
 
                 value = true;
+                JDBC.getInstance().closeConnection();
             }
             else{
                 value = false;
