@@ -62,7 +62,7 @@ public class MainView extends VerticalLayout implements View {
         horizontalLayout.setComponentAlignment(AlleAutosButton, Alignment.MIDDLE_RIGHT);
         horizontalLayout.setComponentAlignment(bewerben, Alignment.MIDDLE_LEFT);
 
-        ergSuche.setStyleGenerator(t -> "highlight-green");
+        ergSuche.setStyleGenerator(t -> "v-grid-cell-red");
 
         SucheAutosFeld.addValueChangeListener(e->{
             if(SucheAutosFeld.isEmpty()){

@@ -2303,7 +2303,7 @@ div.v-layout.v-horizontal.v-widget {
 .mytheme .v-button-friendly {
 	height: 37px;
 	padding: 0 16px;
-	color: #1a1a1a;
+	color: #16181c;
 	font-weight: 400;
 	
 	
@@ -2311,9 +2311,9 @@ div.v-layout.v-horizontal.v-widget {
 	border: 1px solid #362c58;
 	border-top-color: #382d5b;
 	border-bottom-color: #332953;
-	background-color: #ffffff;
-	background-image: -webkit-linear-gradient(top, white 2%, #fbfbfb 98%);
-	background-image: linear-gradient(to bottom,white 2%, #fbfbfb 98%);
+	background-color: #f9fafb;
+	background-image: -webkit-linear-gradient(top, #f9fafb 2%, #f4f5f6 98%);
+	background-image: linear-gradient(to bottom,#f9fafb 2%, #f4f5f6 98%);
 	-webkit-box-shadow: inset 0 1px 0 white;
 	box-shadow: inset 0 1px 0 white;
 	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
@@ -2328,7 +2328,7 @@ div.v-layout.v-horizontal.v-widget {
 }
 
 .mytheme .v-button-friendly:hover:after {
-	background-color: rgba(191, 191, 191, 0.1);
+	background-color: rgba(172, 182, 200, 0.1);
 }
 
 .mytheme .v-button-friendly:focus:after {
@@ -2338,7 +2338,7 @@ div.v-layout.v-horizontal.v-widget {
 }
 
 .mytheme .v-button-friendly:active:after {
-	background-color: rgba(128, 128, 128, 0.2);
+	background-color: rgba(80, 113, 170, 0.2);
 }
 
 .mytheme .v-button-danger {
@@ -13974,7 +13974,7 @@ div.v-layout.v-horizontal.v-widget {
 .mytheme .v-label-success, .mytheme .v-label-failure {
 	background: #f5fff5;
 	color: #197319;
-	border: 2px solid #ffffff;
+	border: 2px solid #f9fafb;
 	border-radius: 3px;
 	padding: 7px 19px 7px 37px;
 	font-weight: 400;
@@ -13986,7 +13986,7 @@ div.v-layout.v-horizontal.v-widget {
 	content: "\f00c";
 	margin-right: 0.5em;
 	margin-left: -19px;
-	color: #ffffff;
+	color: #f9fafb;
 }
 
 .mytheme .v-label-failure {
@@ -14808,11 +14808,11 @@ div.v-layout.v-horizontal.v-widget {
 .mytheme .v-Notification.success, .mytheme .v-Notification.failure {
 	background: #fff;
 	color: #555;
-	border: 2px solid #ffffff;
+	border: 2px solid #f9fafb;
 }
 
 .mytheme .v-Notification.success .v-Notification-caption, .mytheme .v-Notification.failure .v-Notification-caption {
-	color: #ffffff;
+	color: #f9fafb;
 	font-weight: 400;
 }
 
@@ -15430,6 +15430,6 @@ div.v-layout.v-horizontal.v-widget {
 	overflow: hidden;
 }
 
-.mytheme .v-table-row.v-table-row-highlight-green, .mytheme .v-table-row-odd.v-table-row-highlight-green > td {
-	background-color: #00ff00;
+.mytheme .v-grid-cell-red > td {
+	background-color: cornflowerblue !important;
 }
