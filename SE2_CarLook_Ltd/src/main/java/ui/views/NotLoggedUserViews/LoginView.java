@@ -9,6 +9,7 @@ import control.LoginControl;
 import control.SessionControl;
 import dao.LoginDAO;
 import dto.UserLoginDTO;
+import entity.Auto;
 import entity.User;
 import entity.Vertriebler;
 import exceptions.SessionException;

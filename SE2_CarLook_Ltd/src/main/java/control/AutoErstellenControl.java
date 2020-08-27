@@ -30,10 +30,15 @@ public class AutoErstellenControl {
     }
 
     public static List<Auto> getAutoWithCriteria(String criteria){
+
         List<Auto> list = AutoDAO.getInstance().getAllAutosFromDatabase();
         List<Auto> listWithCriteria = new ArrayList<>();
+
         for ( Auto auto : list){
-            if(auto.getMarke().contains(criteria) ){
+            String lowerCaseCriteria = convertString(criteria, criteria.length());
+            String markeCase = convertString(auto.getMarke(), criteria.length());
+            
+            if(auto.getMarke().contains(criteria) | lowerCaseCriteria.contains(markeCase) | auto.getMarke().toLowerCase().contains(criteria.toLowerCase())){
                 listWithCriteria.add(auto);
             }
         }
@@ -65,5 +70,10 @@ public class AutoErstellenControl {
 
     public static String getMessage(){
         return errorMessages;
+    }
+
+    private static String convertString(String value, int lengthOfSearchWord)  {
+        String criteriaWithFirstUpperCase = value.substring(0,1);
+        return criteriaWithFirstUpperCase.toLowerCase() + value.substring(1,lengthOfSearchWord);
     }
 }
