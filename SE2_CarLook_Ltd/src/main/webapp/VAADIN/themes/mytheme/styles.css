@@ -4586,7 +4586,7 @@ div.v-layout.v-horizontal.v-widget {
 	position: absolute;
 	top: 0;
 	right: 0;
-	background-color: #43366C;
+	background-color: #d3cfd6;
 	border: 1px solid #352b56;
 	padding: 0;
 	z-index: 5;
@@ -4712,7 +4712,7 @@ div.v-layout.v-horizontal.v-widget {
 
 .mytheme .v-grid-header th {
 	position: relative;
-	background-color: #43366C;
+	background-color: #d3cfd6;
 	font-size: 14px;
 	font-weight: inherit;
 	border-left: 1px solid #352b56;
@@ -4772,7 +4772,7 @@ div.v-layout.v-horizontal.v-widget {
 }
 
 .mytheme .v-grid-footer td {
-	background-color: #43366C;
+	background-color: #d3cfd6;
 	font-size: 14px;
 	font-weight: inherit;
 	border-left: 1px solid #352b56;
@@ -4800,17 +4800,17 @@ div.v-layout.v-horizontal.v-widget {
 .mytheme .v-grid-header-deco {
 	border-top: 1px solid #352b56;
 	border-right: 1px solid #352b56;
-	background-color: #43366C;
+	background-color: #d3cfd6;
 }
 
 .mytheme .v-grid-footer-deco {
 	border-bottom: 1px solid #352b56;
 	border-right: 1px solid #352b56;
-	background-color: #43366C;
+	background-color: #d3cfd6;
 }
 
 .mytheme .v-grid-horizontal-scrollbar-deco {
-	background-color: #43366C;
+	background-color: #d3cfd6;
 	border: 1px solid #352b56;
 	border-top: none;
 }
@@ -5026,10 +5026,10 @@ div.v-layout.v-horizontal.v-widget {
 }
 
 .mytheme .v-grid-header .v-grid-cell {
-	background-color: #43366C;
-	background-image: -webkit-linear-gradient(top, #45376f 2%, #3f3366 98%);
-	background-image: linear-gradient(to bottom,#45376f 2%, #3f3366 98%);
-	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05);
+	background-color: #d3cfd6;
+	background-image: -webkit-linear-gradient(top, #d4d0d7 2%, #cdc9d0 98%);
+	background-image: linear-gradient(to bottom,#d4d0d7 2%, #cdc9d0 98%);
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .mytheme .v-grid-header .v-grid-cell.dragged {
@@ -5045,22 +5045,22 @@ div.v-layout.v-horizontal.v-widget {
 }
 
 .mytheme .v-grid-footer .v-grid-cell {
-	background-color: #43366C;
-	background-image: -webkit-linear-gradient(top, #45376f 2%, #3f3366 98%);
-	background-image: linear-gradient(to bottom,#45376f 2%, #3f3366 98%);
-	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05);
+	background-color: #d3cfd6;
+	background-image: -webkit-linear-gradient(top, #d4d0d7 2%, #cdc9d0 98%);
+	background-image: linear-gradient(to bottom,#d4d0d7 2%, #cdc9d0 98%);
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .mytheme .v-grid-header-deco {
-	background-color: #43366C;
-	background-image: -webkit-linear-gradient(top, #45376f 2%, #3f3366 98%);
-	background-image: linear-gradient(to bottom,#45376f 2%, #3f3366 98%);
+	background-color: #d3cfd6;
+	background-image: -webkit-linear-gradient(top, #d4d0d7 2%, #cdc9d0 98%);
+	background-image: linear-gradient(to bottom,#d4d0d7 2%, #cdc9d0 98%);
 }
 
 .mytheme .v-grid-footer-deco, .mytheme .v-grid-horizontal-scrollbar-deco {
-	background-color: #43366C;
-	background-image: -webkit-linear-gradient(top, #45376f 2%, #3f3366 98%);
-	background-image: linear-gradient(to bottom,#45376f 2%, #3f3366 98%);
+	background-color: #d3cfd6;
+	background-image: -webkit-linear-gradient(top, #d4d0d7 2%, #cdc9d0 98%);
+	background-image: linear-gradient(to bottom,#d4d0d7 2%, #cdc9d0 98%);
 }
 
 .mytheme .v-grid-row-selected  > .v-grid-cell {
@@ -5201,9 +5201,9 @@ div.v-layout.v-horizontal.v-widget {
 }
 
 .mytheme .v-grid-sidebar.v-contextmenu.closed {
-	background-color: #43366C;
-	background-image: -webkit-linear-gradient(top, #45376f 2%, #3f3366 98%);
-	background-image: linear-gradient(to bottom,#45376f 2%, #3f3366 98%);
+	background-color: #d3cfd6;
+	background-image: -webkit-linear-gradient(top, #d4d0d7 2%, #cdc9d0 98%);
+	background-image: linear-gradient(to bottom,#d4d0d7 2%, #cdc9d0 98%);
 }
 
 .mytheme .v-grid-scroller::-webkit-scrollbar {
@@ -5213,7 +5213,7 @@ div.v-layout.v-horizontal.v-widget {
 .mytheme .v-grid-scroller::-webkit-scrollbar-thumb {
 	border-radius: 10px;
 	border: 4px solid transparent;
-	background: rgba(255, 255, 255, 0.3);
+	background: rgba(0, 0, 0, 0.3);
 	-webkit-background-clip: content-box;
 	background-clip: content-box;
 }
@@ -9350,7 +9350,7 @@ div.v-layout.v-horizontal.v-widget {
 	position: absolute;
 	top: 0;
 	right: 0;
-	background-color: #43366C;
+	background-color: #d3cfd6;
 	border: 1px solid #352b56;
 	padding: 0;
 	z-index: 5;
@@ -9476,7 +9476,7 @@ div.v-layout.v-horizontal.v-widget {
 
 .mytheme .v-tree8-header th {
 	position: relative;
-	background-color: #43366C;
+	background-color: #d3cfd6;
 	font-size: 14px;
 	font-weight: inherit;
 	border-left: 1px solid #352b56;
@@ -9536,7 +9536,7 @@ div.v-layout.v-horizontal.v-widget {
 }
 
 .mytheme .v-tree8-footer td {
-	background-color: #43366C;
+	background-color: #d3cfd6;
 	font-size: 14px;
 	font-weight: inherit;
 	border-left: 1px solid #352b56;
@@ -9564,17 +9564,17 @@ div.v-layout.v-horizontal.v-widget {
 .mytheme .v-tree8-header-deco {
 	border-top: 1px solid #352b56;
 	border-right: 1px solid #352b56;
-	background-color: #43366C;
+	background-color: #d3cfd6;
 }
 
 .mytheme .v-tree8-footer-deco {
 	border-bottom: 1px solid #352b56;
 	border-right: 1px solid #352b56;
-	background-color: #43366C;
+	background-color: #d3cfd6;
 }
 
 .mytheme .v-tree8-horizontal-scrollbar-deco {
-	background-color: #43366C;
+	background-color: #d3cfd6;
 	border: 1px solid #352b56;
 	border-top: none;
 }
@@ -9790,10 +9790,10 @@ div.v-layout.v-horizontal.v-widget {
 }
 
 .mytheme .v-tree8-header .v-tree8-cell {
-	background-color: #43366C;
-	background-image: -webkit-linear-gradient(top, #45376f 2%, #3f3366 98%);
-	background-image: linear-gradient(to bottom,#45376f 2%, #3f3366 98%);
-	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05);
+	background-color: #d3cfd6;
+	background-image: -webkit-linear-gradient(top, #d4d0d7 2%, #cdc9d0 98%);
+	background-image: linear-gradient(to bottom,#d4d0d7 2%, #cdc9d0 98%);
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .mytheme .v-tree8-header .v-tree8-cell.dragged {
@@ -9809,22 +9809,22 @@ div.v-layout.v-horizontal.v-widget {
 }
 
 .mytheme .v-tree8-footer .v-tree8-cell {
-	background-color: #43366C;
-	background-image: -webkit-linear-gradient(top, #45376f 2%, #3f3366 98%);
-	background-image: linear-gradient(to bottom,#45376f 2%, #3f3366 98%);
-	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05);
+	background-color: #d3cfd6;
+	background-image: -webkit-linear-gradient(top, #d4d0d7 2%, #cdc9d0 98%);
+	background-image: linear-gradient(to bottom,#d4d0d7 2%, #cdc9d0 98%);
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .mytheme .v-tree8-header-deco {
-	background-color: #43366C;
-	background-image: -webkit-linear-gradient(top, #45376f 2%, #3f3366 98%);
-	background-image: linear-gradient(to bottom,#45376f 2%, #3f3366 98%);
+	background-color: #d3cfd6;
+	background-image: -webkit-linear-gradient(top, #d4d0d7 2%, #cdc9d0 98%);
+	background-image: linear-gradient(to bottom,#d4d0d7 2%, #cdc9d0 98%);
 }
 
 .mytheme .v-tree8-footer-deco, .mytheme .v-tree8-horizontal-scrollbar-deco {
-	background-color: #43366C;
-	background-image: -webkit-linear-gradient(top, #45376f 2%, #3f3366 98%);
-	background-image: linear-gradient(to bottom,#45376f 2%, #3f3366 98%);
+	background-color: #d3cfd6;
+	background-image: -webkit-linear-gradient(top, #d4d0d7 2%, #cdc9d0 98%);
+	background-image: linear-gradient(to bottom,#d4d0d7 2%, #cdc9d0 98%);
 }
 
 .mytheme .v-tree8-row-selected  > .v-tree8-cell {
@@ -9965,9 +9965,9 @@ div.v-layout.v-horizontal.v-widget {
 }
 
 .mytheme .v-tree8-sidebar.v-contextmenu.closed {
-	background-color: #43366C;
-	background-image: -webkit-linear-gradient(top, #45376f 2%, #3f3366 98%);
-	background-image: linear-gradient(to bottom,#45376f 2%, #3f3366 98%);
+	background-color: #d3cfd6;
+	background-image: -webkit-linear-gradient(top, #d4d0d7 2%, #cdc9d0 98%);
+	background-image: linear-gradient(to bottom,#d4d0d7 2%, #cdc9d0 98%);
 }
 
 .mytheme .v-tree8-scroller::-webkit-scrollbar {
@@ -9977,7 +9977,7 @@ div.v-layout.v-horizontal.v-widget {
 .mytheme .v-tree8-scroller::-webkit-scrollbar-thumb {
 	border-radius: 10px;
 	border: 4px solid transparent;
-	background: rgba(255, 255, 255, 0.3);
+	background: rgba(0, 0, 0, 0.3);
 	-webkit-background-clip: content-box;
 	background-clip: content-box;
 }
@@ -10496,7 +10496,7 @@ div.v-layout.v-horizontal.v-widget {
 	position: absolute;
 	top: 0;
 	right: 0;
-	background-color: #43366C;
+	background-color: #d3cfd6;
 	border: 1px solid #352b56;
 	padding: 0;
 	z-index: 5;
@@ -10622,7 +10622,7 @@ div.v-layout.v-horizontal.v-widget {
 
 .mytheme .v-treegrid-header th {
 	position: relative;
-	background-color: #43366C;
+	background-color: #d3cfd6;
 	font-size: 14px;
 	font-weight: inherit;
 	border-left: 1px solid #352b56;
@@ -10682,7 +10682,7 @@ div.v-layout.v-horizontal.v-widget {
 }
 
 .mytheme .v-treegrid-footer td {
-	background-color: #43366C;
+	background-color: #d3cfd6;
 	font-size: 14px;
 	font-weight: inherit;
 	border-left: 1px solid #352b56;
@@ -10710,17 +10710,17 @@ div.v-layout.v-horizontal.v-widget {
 .mytheme .v-treegrid-header-deco {
 	border-top: 1px solid #352b56;
 	border-right: 1px solid #352b56;
-	background-color: #43366C;
+	background-color: #d3cfd6;
 }
 
 .mytheme .v-treegrid-footer-deco {
 	border-bottom: 1px solid #352b56;
 	border-right: 1px solid #352b56;
-	background-color: #43366C;
+	background-color: #d3cfd6;
 }
 
 .mytheme .v-treegrid-horizontal-scrollbar-deco {
-	background-color: #43366C;
+	background-color: #d3cfd6;
 	border: 1px solid #352b56;
 	border-top: none;
 }
@@ -10936,10 +10936,10 @@ div.v-layout.v-horizontal.v-widget {
 }
 
 .mytheme .v-treegrid-header .v-treegrid-cell {
-	background-color: #43366C;
-	background-image: -webkit-linear-gradient(top, #45376f 2%, #3f3366 98%);
-	background-image: linear-gradient(to bottom,#45376f 2%, #3f3366 98%);
-	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05);
+	background-color: #d3cfd6;
+	background-image: -webkit-linear-gradient(top, #d4d0d7 2%, #cdc9d0 98%);
+	background-image: linear-gradient(to bottom,#d4d0d7 2%, #cdc9d0 98%);
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .mytheme .v-treegrid-header .v-treegrid-cell.dragged {
@@ -10955,22 +10955,22 @@ div.v-layout.v-horizontal.v-widget {
 }
 
 .mytheme .v-treegrid-footer .v-treegrid-cell {
-	background-color: #43366C;
-	background-image: -webkit-linear-gradient(top, #45376f 2%, #3f3366 98%);
-	background-image: linear-gradient(to bottom,#45376f 2%, #3f3366 98%);
-	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05);
+	background-color: #d3cfd6;
+	background-image: -webkit-linear-gradient(top, #d4d0d7 2%, #cdc9d0 98%);
+	background-image: linear-gradient(to bottom,#d4d0d7 2%, #cdc9d0 98%);
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .mytheme .v-treegrid-header-deco {
-	background-color: #43366C;
-	background-image: -webkit-linear-gradient(top, #45376f 2%, #3f3366 98%);
-	background-image: linear-gradient(to bottom,#45376f 2%, #3f3366 98%);
+	background-color: #d3cfd6;
+	background-image: -webkit-linear-gradient(top, #d4d0d7 2%, #cdc9d0 98%);
+	background-image: linear-gradient(to bottom,#d4d0d7 2%, #cdc9d0 98%);
 }
 
 .mytheme .v-treegrid-footer-deco, .mytheme .v-treegrid-horizontal-scrollbar-deco {
-	background-color: #43366C;
-	background-image: -webkit-linear-gradient(top, #45376f 2%, #3f3366 98%);
-	background-image: linear-gradient(to bottom,#45376f 2%, #3f3366 98%);
+	background-color: #d3cfd6;
+	background-image: -webkit-linear-gradient(top, #d4d0d7 2%, #cdc9d0 98%);
+	background-image: linear-gradient(to bottom,#d4d0d7 2%, #cdc9d0 98%);
 }
 
 .mytheme .v-treegrid-row-selected  > .v-treegrid-cell {
@@ -11111,9 +11111,9 @@ div.v-layout.v-horizontal.v-widget {
 }
 
 .mytheme .v-treegrid-sidebar.v-contextmenu.closed {
-	background-color: #43366C;
-	background-image: -webkit-linear-gradient(top, #45376f 2%, #3f3366 98%);
-	background-image: linear-gradient(to bottom,#45376f 2%, #3f3366 98%);
+	background-color: #d3cfd6;
+	background-image: -webkit-linear-gradient(top, #d4d0d7 2%, #cdc9d0 98%);
+	background-image: linear-gradient(to bottom,#d4d0d7 2%, #cdc9d0 98%);
 }
 
 .mytheme .v-treegrid-scroller::-webkit-scrollbar {
@@ -11123,7 +11123,7 @@ div.v-layout.v-horizontal.v-widget {
 .mytheme .v-treegrid-scroller::-webkit-scrollbar-thumb {
 	border-radius: 10px;
 	border: 4px solid transparent;
-	background: rgba(255, 255, 255, 0.3);
+	background: rgba(0, 0, 0, 0.3);
 	-webkit-background-clip: content-box;
 	background-clip: content-box;
 }
@@ -15430,6 +15430,6 @@ div.v-layout.v-horizontal.v-widget {
 	overflow: hidden;
 }
 
-.mytheme .v-grid-cell-red > td {
-	background-color: cornflowerblue !important;
+.mytheme .v-grid-cell-red td {
+	background-color: sandybrown !important;
 }
