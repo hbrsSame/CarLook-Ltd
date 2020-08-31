@@ -8,11 +8,9 @@ import control.SessionControl;
 import entity.Endkunde;
 import entity.User;
 import entity.Vertriebler;
-import exceptions.NoUserFoundException;
-import exceptions.RegisterException;
-import exceptions.SessionException;
-import exceptions.UserAlreadyExistException;
+import exceptions.*;
 import models.factory.ComponentFactory;
+import models.service.RegexChecker;
 import ui.panel.BottomPanel;
 import ui.panel.TopPanel;
 import utils.Roles;
@@ -74,13 +72,13 @@ public class RegisterView extends VerticalLayout implements View {
             }
 
 
-            try {
+           try {
                 if(RegisterControl.registerUser(user) ) {
                     Notification.show("Sucess", "Hallo " + valueOfName + "! Sie haben sich erfolgreich regestriert! Wilkommen bei CarLook",
                     Notification.Type.WARNING_MESSAGE);
                     UI.getCurrent().getNavigator().navigateTo(Views.LoginView);
                 }
-            } catch (RegisterException | NoUserFoundException | UserAlreadyExistException exception) {
+            } catch (RegisterException | NoUserFoundException | UserAlreadyExistException | RegexException exception) {
                 Notification.show("Error", exception.getMessage(), Notification.Type.WARNING_MESSAGE);
             }
 

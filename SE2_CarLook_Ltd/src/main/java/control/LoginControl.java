@@ -36,13 +36,14 @@ public class LoginControl {
         }
     }
 
-    private static boolean checkUserData(User UserDataFromDatabase, UserLoginDTO UserDataFromLogin){
+    private static boolean checkUserData(User UserDataFromDatabase, UserLoginDTO UserDataFromLogin) throws DatabaseException{
         // Prüfe ob Daten gültige Werte besitzen ( keine Nullwerte, NullPointerException)
-        if(UserDataFromDatabase.getUsername() != null && UserDataFromDatabase.getPassword() != null){
+        if(UserDataFromDatabase != null){
             return (  UserDataFromDatabase.getUsername().equals( UserDataFromLogin.getUsername() )
                     &&        UserDataFromDatabase.getPassword().equals( UserDataFromLogin.getPassword() )  );
+        }else{
+            throw new DatabaseException("Userdaten nicht gefunden! Ungültige Daten");
         }
-        return false;
     }
 
 

@@ -1,2 +1,6 @@
-entity/Reservierung.class
-utils/Status.class
+exceptions\RegexException.class
+ui\views\NotLoggedUserViews\RegisterView.class
+entity\Reservierung.class
+models\service\RegexChecker.class
+utils\Status.class
+models\service\RegexPattern.class

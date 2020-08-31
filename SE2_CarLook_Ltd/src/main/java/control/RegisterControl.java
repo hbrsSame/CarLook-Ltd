@@ -3,24 +3,32 @@ package control;
 import dao.RegisterDAO;
 import entity.User;
 import exceptions.NoUserFoundException;
+import exceptions.RegexException;
 import exceptions.RegisterException;
 import exceptions.UserAlreadyExistException;
+import models.service.RegexChecker;
 
 public class RegisterControl {
 
     private static String errorMessages = "";
-    public static boolean registerUser(User user) throws RegisterException, NoUserFoundException, UserAlreadyExistException {
+    public static boolean registerUser(User user) throws RegisterException, NoUserFoundException, UserAlreadyExistException, RegexException {
 
         if(user == null){
-            return false;
+            throw new NoUserFoundException("Userdaten dürfen nicht leer sein");
         }
 
         if(RegisterDAO.getInstance().checkIfUserAlreadyExist(user)){
             throw new UserAlreadyExistException("User bereits vorhanden");
         }
 
-        if(checkUserData(user) ){
-            return RegisterDAO.getInstance().registerUser(user);
+        if(checkUserData(user) ) {
+            try{
+                RegexChecker.checkEmail(user.getUsername());
+                return RegisterDAO.getInstance().registerUser(user);
+            }catch (RegexException regexException){
+                throw new RegexException("Die Subdomain muss @carlook.de sein. Bitte korrigieren Sie Ihre Eingabe");
+            }
+
         }
 
         if(checkUserData(user) == false){
@@ -30,6 +38,8 @@ public class RegisterControl {
         }
 
         return false;
+
+
     }
 
     private static boolean checkUserData( User user){
