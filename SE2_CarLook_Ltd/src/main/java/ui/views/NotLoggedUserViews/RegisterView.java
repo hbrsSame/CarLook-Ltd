@@ -10,7 +10,6 @@ import entity.User;
 import entity.Vertriebler;
 import exceptions.*;
 import models.factory.ComponentFactory;
-import models.service.RegexChecker;
 import ui.panel.BottomPanel;
 import ui.panel.TopPanel;
 import utils.Roles;
