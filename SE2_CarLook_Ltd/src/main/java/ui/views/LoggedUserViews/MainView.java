@@ -4,19 +4,24 @@ import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;
 import com.vaadin.shared.ui.ContentMode;
 import com.vaadin.ui.*;
-import com.vaadin.ui.components.grid.HeaderCell;
-import com.vaadin.ui.components.grid.HeaderRow;
 import control.AutoErstellenControl;
 import control.SessionControl;
 import entity.Auto;
+import entity.User;
+import entity.Vertriebler;
 import exceptions.SessionException;
 import models.factory.ComponentFactory;
 import models.factory.ViewFactory;
 import ui.panel.BottomPanel;
+import utils.Roles;
+import utils.Status;
+import utils.Views;
 
 import static models.factory.GridFactory.getConfiguredGrid;
 
 public class MainView extends VerticalLayout implements View {
+
+    private Auto auto = null;
 
     public void enter(ViewChangeListener.ViewChangeEvent event){
         try {
@@ -53,16 +58,20 @@ public class MainView extends VerticalLayout implements View {
         ergSuche.setSizeFull();
 
         Button AlleAutosButton = ComponentFactory.createButtonWithCaption("Alle Autos anzeigen");
-        Button bewerben = ComponentFactory.createButtonWithCaption("Auto mieten");
+        Button bookCarButton = ComponentFactory.createButtonWithCaption("Auto mieten");
 
+
+        if(UI.getCurrent().getSession().getAttribute(Roles.CURRENT_USER) instanceof Vertriebler){
+            bookCarButton.setVisible(false);
+        }
 
 
         HorizontalLayout horizontalLayout = new HorizontalLayout();
 
         horizontalLayout.addComponent(AlleAutosButton);
-        horizontalLayout.addComponent(bewerben);
+        horizontalLayout.addComponent(bookCarButton);
         horizontalLayout.setComponentAlignment(AlleAutosButton, Alignment.MIDDLE_RIGHT);
-        horizontalLayout.setComponentAlignment(bewerben, Alignment.MIDDLE_LEFT);
+        horizontalLayout.setComponentAlignment(bookCarButton, Alignment.MIDDLE_LEFT);
 
         ergSuche.setStyleGenerator(t -> "v-grid-cell-red");
 
@@ -84,6 +93,28 @@ public class MainView extends VerticalLayout implements View {
                 Notification.show("Error", "Es wurden keine Autos gefunden!", Notification.Type.WARNING_MESSAGE);
             }
 
+        });
+
+        ergSuche.addItemClickListener(autoItemClick->{
+            auto = autoItemClick.getItem();
+
+            if(auto.getStatus().equals(Status.BOOKED)){
+                bookCarButton.setEnabled(false);
+            }else{
+                bookCarButton.setEnabled(true);
+            }
+        });
+
+        bookCarButton.addClickListener( e-> {
+
+
+            if(auto != null){
+                String key = Roles.SELECTED_CAR;
+                UI.getCurrent().getSession().setAttribute(key, auto);
+                UI.getCurrent().getNavigator().navigateTo(Views.BookingCarView);
+            }else{
+                Notification.show("Error", "Das Auto kann nicht gefunden werden!", Notification.Type.WARNING_MESSAGE);
+            }
         });
 
         HorizontalLayout SucheLayout = new HorizontalLayout();

@@ -10,18 +10,17 @@ import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
 import com.vaadin.ui.UI;
 import entity.User;
-import ui.views.LoggedUserViews.CreateAutoView;
+import ui.views.LoggedUserViews.*;
 import ui.views.NotLoggedUserViews.LoginView;
-import ui.views.LoggedUserViews.MainView;
 import ui.views.NotLoggedUserViews.RegisterView;
 import utils.Roles;
 import utils.Views;
 
 /**
- * This UI is the application entry point. A UI may either represent a browser window 
+ * This UI is the application entry point. A UI may either represent a browser window
  * (or tab) or some part of an HTML page where a Vaadin application is embedded.
  * <p>
- * The UI is initialized using {@link #init(VaadinRequest)}. This method is intended to be 
+ * The UI is initialized using {@link #init(VaadinRequest)}. This method is intended to be
  * overridden to add component to the user interface and initialize non-component functionality.
  */
 @Theme("mytheme")
@@ -37,6 +36,9 @@ public class home extends UI {
         pageNavigator.addView(Views.MainView, MainView.class);
         pageNavigator.addView(Views.RegisterView, RegisterView.class);
         pageNavigator.addView(Views.CreateAutoView, CreateAutoView.class);
+        pageNavigator.addView(Views.EingetrageneAutosView, ShowCreatedCarsView.class);
+        pageNavigator.addView(Views.ShowBookingView, ShowBookingView.class);
+        pageNavigator.addView(Views.BookingCarView, BookingCarView.class);
 
 
         //Eine Page als Startpage z.B. LoginView

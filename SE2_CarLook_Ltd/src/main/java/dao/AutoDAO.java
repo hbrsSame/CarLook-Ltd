@@ -61,6 +61,7 @@ public class AutoDAO {
                 auto.setBeschreibung(data.getString(4));
                 auto.setVertriebler_id(data.getInt(5));
                 auto.setVertriebler_name(data.getString(6));
+                auto.setStatus(data.getString(7));
 
                 autoList.add(auto);
             }
@@ -70,5 +71,33 @@ public class AutoDAO {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public List<Auto> getAllAutosFromDatabaseWithVertrieblerID(User user){
+        try{
+            List<Auto> autoList = new ArrayList<>();
+            PreparedStatement querry = JDBC.getInstance().getPreparedStatement("SELECT * FROM carlook.auto WHERE vertriebler_id = ?");
+            querry.setInt(1, ( (Vertriebler) user).getVertrieblerID());
+            ResultSet data = querry.executeQuery();
+
+            while(data.next()){
+                Auto auto = new Auto();
+                auto.setAuto_id(data.getInt(1));
+                auto.setMarke(data.getString(2));
+                auto.setBaujahr(data.getString(3));
+                auto.setBeschreibung(data.getString(4));
+                auto.setVertriebler_id(data.getInt(5));
+                auto.setVertriebler_name(data.getString(6));
+                auto.setStatus(data.getString(7));
+
+                autoList.add(auto);
+            }
+
+            return autoList;
+
+        }catch (SQLException | DatabaseException e){
+            e.printStackTrace();
+            return null;
+        }
     }
 }

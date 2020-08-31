@@ -43,12 +43,8 @@ public class TopPanel extends VerticalLayout {
                         UI.getCurrent().getNavigator().navigateTo(Views.MainView);
                     });
 
-                    loggedUserMenuItem.addItem("Autos reservieren", FontAwesome.BOOK, e->{
-                        //UI.getCurrent().getNavigator().navigateTo(Views.BookingCarView);
-                    });
-
                     loggedUserMenuItem.addItem("Reservierungen anzeigen", FontAwesome.DASHBOARD, e->{
-                        //UI.getCurrent().getNavigator().navigateTo(Views.ReservierungenView);
+                        UI.getCurrent().getNavigator().navigateTo(Views.ShowBookingView);
                     });
                 }
 
@@ -59,7 +55,7 @@ public class TopPanel extends VerticalLayout {
                     });
 
                     loggedUserMenuItem.addItem("Eingetragen Autos", FontAwesome.DATABASE, e->{
-                        //UI.getCurrent().getNavigator().navigateTo(Views.EingetrageneAutosView);
+                        UI.getCurrent().getNavigator().navigateTo(Views.EingetrageneAutosView);
                     });
                 }
 

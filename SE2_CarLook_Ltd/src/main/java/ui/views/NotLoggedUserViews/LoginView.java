@@ -12,6 +12,8 @@ import dto.UserLoginDTO;
 import entity.Auto;
 import entity.User;
 import entity.Vertriebler;
+import exceptions.DatabaseException;
+import exceptions.NoUserFoundException;
 import exceptions.SessionException;
 import ui.panel.BottomPanel;
 import ui.panel.TopPanel;
@@ -52,11 +54,11 @@ public class LoginView extends VerticalLayout implements View {
             currentUser.setUsername(e.getLoginParameter("username"));
             currentUser.setPassword(e.getLoginParameter("password"));
 
-            if(LoginControl.checkAuthentication(currentUser)){
+            try{
+                LoginControl.checkAuthentication(currentUser);
                 UI.getCurrent().getNavigator().navigateTo(Views.MainView);
-            }
-            else{
-                Notification.show("Error", "Username oder Password falsch", Notification.Type.WARNING_MESSAGE);
+            }catch (DatabaseException | NoUserFoundException exception){
+                Notification.show("Error", exception.getMessage(), Notification.Type.WARNING_MESSAGE);
             }
         });
 

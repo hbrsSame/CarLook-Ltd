@@ -6,6 +6,7 @@ public class Auto {
     private String baujahr;
     private int auto_id;
     private int vertriebler_id;
+    private String status;
 
     public String getVertriebler_name() {
         return vertriebler_name;
@@ -59,4 +60,12 @@ public class Auto {
     }
 
     private String beschreibung;
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 }

@@ -21,12 +21,14 @@ public class SessionControl {
         return value;
     }
 
-    public static boolean controlLoggedSessionForEndkunde() {
+    public static boolean controlLoggedSessionForEndkunde() throws SessionException {
         User validUserSesion = (User) UI.getCurrent().getSession().getAttribute(Roles.CURRENT_USER);
         boolean value = false;
 
         if(validUserSesion instanceof Endkunde ){
             value = true;
+        }else{
+            throw new SessionException("Diese Seite ist nur für Endkunden sichtbar");
         }
         return value;
     }

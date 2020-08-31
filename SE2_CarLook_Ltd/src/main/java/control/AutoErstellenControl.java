@@ -29,6 +29,14 @@ public class AutoErstellenControl {
         return null;
     }
 
+    public static List<Auto> getAllAutosWithVertrieblerID(User user){
+        List<Auto> list = AutoDAO.getInstance().getAllAutosFromDatabaseWithVertrieblerID(user);
+        if(list !=null){
+            return list;
+        }
+        return null;
+    }
+
     public static List<Auto> getAutoWithCriteria(String criteria){
 
         List<Auto> list = AutoDAO.getInstance().getAllAutosFromDatabase();
@@ -37,7 +45,7 @@ public class AutoErstellenControl {
         for ( Auto auto : list){
             String lowerCaseCriteria = convertString(criteria, criteria.length());
             String markeCase = convertString(auto.getMarke(), criteria.length());
-            
+
             if(auto.getMarke().contains(criteria) | lowerCaseCriteria.contains(markeCase) | auto.getMarke().toLowerCase().contains(criteria.toLowerCase())){
                 listWithCriteria.add(auto);
             }
@@ -50,17 +58,17 @@ public class AutoErstellenControl {
         boolean baujahrCheck = true;
         boolean beschreibungCheck = true;
 
-             if( auto.getMarke().isEmpty()        | auto.getMarke() == null){
-                 markeCheck = false;
-                 errorMessages += " Marke darf nicht leer sein";
-             }
-             if( auto.getBaujahr().isEmpty()      | auto.getBaujahr() == null | auto.getBaujahr().equals("0") ){
-                 baujahrCheck = false;
-                 errorMessages += " Baujahr darf nicht leer sein";
-             }
-             if( auto.getBeschreibung().isEmpty() | auto.getBeschreibung() == null) {
-                 beschreibungCheck = false;
-                 errorMessages += " Beschreibung darf nicht leer sein";
+        if( auto.getMarke().isEmpty()        | auto.getMarke() == null){
+            markeCheck = false;
+            errorMessages += " Marke darf nicht leer sein";
+        }
+        if( auto.getBaujahr().isEmpty()      | auto.getBaujahr() == null | auto.getBaujahr().equals("0") ){
+            baujahrCheck = false;
+            errorMessages += " Baujahr darf nicht leer sein";
+        }
+        if( auto.getBeschreibung().isEmpty() | auto.getBeschreibung() == null) {
+            beschreibungCheck = false;
+            errorMessages += " Beschreibung darf nicht leer sein";
         }
         if( ! (markeCheck && baujahrCheck && beschreibungCheck ) ){
             errorMessages = "Es dürfen keine Felder leer sein! Alles sind Plfichtfelder!";
