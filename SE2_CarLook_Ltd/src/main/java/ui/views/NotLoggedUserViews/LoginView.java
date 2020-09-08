@@ -55,8 +55,11 @@ public class LoginView extends VerticalLayout implements View {
             currentUser.setPassword(e.getLoginParameter("password"));
 
             try{
-                LoginControl.checkAuthentication(currentUser);
-                UI.getCurrent().getNavigator().navigateTo(Views.MainView);
+                if(LoginControl.checkAuthentication(currentUser)) {
+                    VaadinSession session = UI.getCurrent().getSession();
+                    session.setAttribute(Roles.CURRENT_USER, LoginControl.getUser());
+                    UI.getCurrent().getNavigator().navigateTo(Views.MainView);
+                }
             }catch (DatabaseException | NoUserFoundException exception){
                 Notification.show("Error", exception.getMessage(), Notification.Type.WARNING_MESSAGE);
             }

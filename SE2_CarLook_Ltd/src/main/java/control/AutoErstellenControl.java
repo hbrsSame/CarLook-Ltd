@@ -9,12 +9,13 @@ import java.util.List;
 
 public class AutoErstellenControl {
     private static String errorMessages = "";
-
+    private static Auto createdAuto;
     public static boolean createAuto(User user, Auto auto){
         if(auto.getBaujahr().isEmpty()){
             auto.setBaujahr("0");
         }
         if(checkAutoData(auto)){
+            createdAuto = auto;
             return AutoDAO.getInstance().createAuto(user, auto);
         }
 
@@ -83,5 +84,9 @@ public class AutoErstellenControl {
     private static String convertString(String value, int lengthOfSearchWord)  {
         String criteriaWithFirstUpperCase = value.substring(0,1);
         return criteriaWithFirstUpperCase.toLowerCase() + value.substring(1,lengthOfSearchWord);
+    }
+
+    public static Auto getAuto(){
+        return createdAuto;
     }
 }

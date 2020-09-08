@@ -10,6 +10,7 @@ import exceptions.NoUserFoundException;
 import utils.Roles;
 
 public class LoginControl {
+    private static User returnedUser;
 
     public static boolean checkAuthentication(UserLoginDTO user) throws NoUserFoundException, DatabaseException{
 
@@ -22,11 +23,10 @@ public class LoginControl {
     }
 
 
-    public static boolean transferUserToDAO(User loggedUser, UserLoginDTO user) throws DatabaseException, NoUserFoundException {
+    private static boolean transferUserToDAO(User loggedUser, UserLoginDTO user) throws DatabaseException, NoUserFoundException {
         if(checkUserData(loggedUser, user)){
             if(loggedUser != null){
-                VaadinSession session = UI.getCurrent().getSession();
-                session.setAttribute(Roles.CURRENT_USER, loggedUser);
+                returnedUser = loggedUser;
                 return true;
             }else{
                 throw new DatabaseException("Fehler, angegebene Daten nicht in der Datenbank gefunden!");
@@ -51,5 +51,9 @@ public class LoginControl {
         return  (   userLoginDTO.getUsername().isEmpty() | userLoginDTO.getUsername().length() < 8     | userLoginDTO.getUsername() == null
                 &&  userLoginDTO.getPassword().isEmpty() | userLoginDTO.getPassword().length() < 6     | userLoginDTO.getPassword() == null);
 
+    }
+
+    public static User getUser(){
+        return returnedUser;
     }
 }

@@ -80,7 +80,50 @@ public class RegisterDAO {
     }
 
 
+    public boolean deleteUser(User user){
+        PreparedStatement querry = null;
 
+        try {
+
+            if (user instanceof Vertriebler) {
+
+                // Alle vom Vertriebler erzeugten Autos löschen
+                querry = JDBC.getInstance().getPreparedStatement("DELETE FROM carlook.auto WHERE vertriebler_id = ?");
+                querry.setInt(1, ((Vertriebler) user).getVertrieblerID() );
+                querry.execute();
+
+                // Alle Daten vom Vertriebler löschen
+                querry = JDBC.getInstance().getPreparedStatement("DELETE FROM carlook.vertriebler WHERE username_fk = ?");
+                querry.setString(1, user.getUsername());
+                querry.execute();
+
+
+            }
+            if(user instanceof Endkunde){
+
+                //Alle vom Endkunden erzeugten Reservierungen löschen
+                querry = JDBC.getInstance().getPreparedStatement("DELETE FROM carlook.reservierung WHERE endkunden_id = ?");
+                querry.setInt(1, ((Endkunde) user).getEndkundeID());
+                querry.execute();
+
+                //Alle Daten vom Endkunden löschen
+                querry = JDBC.getInstance().getPreparedStatement(" DELETE FROM carlook.endkunde WHERE username_fk = ?");
+                querry.setString(1, user.getUsername());
+                querry.execute();
+            }
+
+            // User komplett löschen
+            querry = JDBC.getInstance().getPreparedStatement("DELETE FROM carlook.user WHERE username= ?");
+            querry.setString(1, user.getUsername());
+            querry.execute();
+
+            return true;
+
+        }catch (DatabaseException | SQLException exception){
+            exception.printStackTrace();
+            return false;
+        }
+    }
 
 
 

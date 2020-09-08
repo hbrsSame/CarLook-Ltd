@@ -64,4 +64,11 @@ public class RegisterControl {
         return checkUsername && checkPassword && checkRepeatPassword;
     }
 
+    public static boolean DeleteUser(User user) throws NoUserFoundException{
+        if(RegisterDAO.getInstance().deleteUser(user)){
+            return true;
+        }
+        throw new NoUserFoundException("User der gelöscht worden soll, ist nicht in der DB vorhanden oder wurde bereits gelöscht");
+    }
+
 }
