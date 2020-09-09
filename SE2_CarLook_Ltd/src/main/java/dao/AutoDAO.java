@@ -5,6 +5,7 @@ import entity.Auto;
 import entity.User;
 import entity.Vertriebler;
 import exceptions.DatabaseException;
+import utils.SQL;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -29,7 +30,7 @@ public class AutoDAO {
         PreparedStatement querry;
         try {
             if(user instanceof Vertriebler){
-                querry = JDBC.getInstance().getPreparedStatement("INSERT INTO carlook.auto VALUES (default,?,?,?,?,?)");
+                querry = JDBC.getInstance().getPreparedStatement(SQL.InsertIntoAuto);
                 querry.setString(1,auto.getMarke());
                 querry.setInt(2,Integer.parseInt(auto.getBaujahr()) );
                 querry.setString(3, auto.getBeschreibung());
@@ -50,7 +51,7 @@ public class AutoDAO {
     public List<Auto> getAllAutosFromDatabase(){
         List<Auto> autoList = new ArrayList<>();
         try {
-            PreparedStatement querry = JDBC.getInstance().getPreparedStatement("SELECT * FROM carlook.auto");
+            PreparedStatement querry = JDBC.getInstance().getPreparedStatement(SQL.GetAllAutosFromDatabase);
             ResultSet data = querry.executeQuery();
 
             while(data.next()){
@@ -76,7 +77,7 @@ public class AutoDAO {
     public List<Auto> getAllAutosFromDatabaseWithVertrieblerID(User user){
         try{
             List<Auto> autoList = new ArrayList<>();
-            PreparedStatement querry = JDBC.getInstance().getPreparedStatement("SELECT * FROM carlook.auto WHERE vertriebler_id = ?");
+            PreparedStatement querry = JDBC.getInstance().getPreparedStatement(SQL.GetAllAutosFromVertriebler);
             querry.setInt(1, ( (Vertriebler) user).getVertrieblerID());
             ResultSet data = querry.executeQuery();
 

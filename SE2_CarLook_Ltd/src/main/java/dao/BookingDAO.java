@@ -5,6 +5,7 @@ import entity.Endkunde;
 import entity.Reservierung;
 import entity.User;
 import exceptions.DatabaseException;
+import utils.SQL;
 import utils.Status;
 
 import java.sql.PreparedStatement;
@@ -29,7 +30,7 @@ public class BookingDAO {
     public Reservierung bookCar(Reservierung reservierung){
 
         try{
-            PreparedStatement querry = JDBC.getInstance().getPreparedStatement("INSERT INTO carlook.reservierung VALUES (default,?,?,?,?,?,?,?)");
+            PreparedStatement querry = JDBC.getInstance().getPreparedStatement(SQL.InsertIntoReservierung);
             querry.setInt(1,reservierung.getAuto_id());
             querry.setInt(2, reservierung.getEndkunden_id());
             querry.setString(3, reservierung.getEndkunden_name());
@@ -40,7 +41,7 @@ public class BookingDAO {
 
             querry.execute();
 
-            querry = JDBC.getInstance().getPreparedStatement("UPDATE carlook.auto SET status = ? WHERE auto_id = ?");
+            querry = JDBC.getInstance().getPreparedStatement(SQL.UpdateOnAutoStatus);
             querry.setString(1, Status.BOOKED);
             querry.setInt(2, reservierung.getAuto_id());
 
@@ -60,7 +61,7 @@ public class BookingDAO {
         List<Reservierung> list = new ArrayList<>();
 
         try{
-            PreparedStatement querry = JDBC.getInstance().getPreparedStatement("SELECT * FROM carlook.reservierung WHERE endkunden_id = ? ");
+            PreparedStatement querry = JDBC.getInstance().getPreparedStatement(SQL.GetAllReservierungFromEndkunde);
             querry.setInt( 1, ((Endkunde) user).getEndkundeID() );
 
             ResultSet data = querry.executeQuery();
@@ -89,12 +90,12 @@ public class BookingDAO {
 
     public boolean cancelBooking(Reservierung reservierung){
         try{
-            PreparedStatement querry = JDBC.getInstance().getPreparedStatement("UPDATE carlook.auto SET status = ? WHERE auto_id = ?");
+            PreparedStatement querry = JDBC.getInstance().getPreparedStatement(SQL.UpdateOnAutoStatus);
             querry.setString(1, Status.FREE);
             querry.setInt(2, reservierung.getAuto_id());
             querry.execute();
 
-            querry = JDBC.getInstance().getPreparedStatement("UPDATE carlook.reservierung SET status = ? WHERE reservierung_id = ?");
+            querry = JDBC.getInstance().getPreparedStatement(SQL.UpdateOnReservierungStatus);
             querry.setString(1, Status.CANCELED);
             querry.setInt(2, reservierung.getReservierung_id());
             querry.execute();

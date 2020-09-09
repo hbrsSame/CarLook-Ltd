@@ -66,7 +66,7 @@ public class RegisterDAO {
     public boolean checkIfUserAlreadyExist(User user){
         PreparedStatement querry = null;
         try {
-            querry = JDBC.getInstance().getPreparedStatement("SELECT username FROM carlook.user WHERE username = ?");
+            querry = JDBC.getInstance().getPreparedStatement(SQL.GetUsernameFromUser);
             querry.setString(1, user.getUsername());
 
             ResultSet data = querry.executeQuery();
@@ -88,12 +88,12 @@ public class RegisterDAO {
             if (user instanceof Vertriebler) {
 
                 // Alle vom Vertriebler erzeugten Autos löschen
-                querry = JDBC.getInstance().getPreparedStatement("DELETE FROM carlook.auto WHERE vertriebler_id = ?");
+                querry = JDBC.getInstance().getPreparedStatement(SQL.deleteDataFromAutoWithVertriebler);
                 querry.setInt(1, ((Vertriebler) user).getVertrieblerID() );
                 querry.execute();
 
                 // Alle Daten vom Vertriebler löschen
-                querry = JDBC.getInstance().getPreparedStatement("DELETE FROM carlook.vertriebler WHERE username_fk = ?");
+                querry = JDBC.getInstance().getPreparedStatement(SQL.deleteDataFromVetriebler);
                 querry.setString(1, user.getUsername());
                 querry.execute();
 
@@ -102,18 +102,18 @@ public class RegisterDAO {
             if(user instanceof Endkunde){
 
                 //Alle vom Endkunden erzeugten Reservierungen löschen
-                querry = JDBC.getInstance().getPreparedStatement("DELETE FROM carlook.reservierung WHERE endkunden_id = ?");
+                querry = JDBC.getInstance().getPreparedStatement(SQL.deleteDataFromReservierungWithEndkunde);
                 querry.setInt(1, ((Endkunde) user).getEndkundeID());
                 querry.execute();
 
                 //Alle Daten vom Endkunden löschen
-                querry = JDBC.getInstance().getPreparedStatement(" DELETE FROM carlook.endkunde WHERE username_fk = ?");
+                querry = JDBC.getInstance().getPreparedStatement(SQL.deleteDataFromEndkunde);
                 querry.setString(1, user.getUsername());
                 querry.execute();
             }
 
             // User komplett löschen
-            querry = JDBC.getInstance().getPreparedStatement("DELETE FROM carlook.user WHERE username= ?");
+            querry = JDBC.getInstance().getPreparedStatement(SQL.deleteDataFromUser);
             querry.setString(1, user.getUsername());
             querry.execute();
 

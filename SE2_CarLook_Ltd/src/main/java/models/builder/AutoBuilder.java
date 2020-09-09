@@ -27,6 +27,11 @@ public class AutoBuilder {
         return this;
     }
 
+    public AutoBuilder mitStatus(String status){
+        this.auto.setStatus(status);
+        return this;
+    }
+
     public AutoBuilder mitVertriebler_id (int id){
         this.auto.setVertriebler_id(id);
         return this;
