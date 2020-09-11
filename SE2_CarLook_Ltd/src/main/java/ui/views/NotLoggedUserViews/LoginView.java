@@ -48,11 +48,11 @@ public class LoginView extends VerticalLayout implements View {
 
         LoginForm loginForm = new LoginForm();
 
-
         loginForm.addLoginListener(e->{
             UserLoginDTO currentUser = new UserLoginDTO();
             currentUser.setUsername(e.getLoginParameter("username"));
             currentUser.setPassword(e.getLoginParameter("password"));
+
 
             try{
                 if(LoginControl.checkAuthentication(currentUser)) {
