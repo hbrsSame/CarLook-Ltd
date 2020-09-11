@@ -42,10 +42,15 @@ public class RegisterView extends VerticalLayout implements View {
         VerticalLayout EndkundeLayout = new VerticalLayout();
 
         TextField username = ComponentFactory.createTextFieldWithCaption("E-mail/Username");
+        username.setId("username");
         PasswordField password = ComponentFactory.createPasswordFieldWithCaption("Password");
+        password.setId("password");
         PasswordField repeatPassword = ComponentFactory.createPasswordFieldWithCaption("Password wiederholen");
+        repeatPassword.setId("repeatpassword");
         TextField name = ComponentFactory.createTextFieldWithCaption("Name");
+        name.setId("name");
         Button registerButton = ComponentFactory.createButtonWithCaption("Jetzt regestrieren");
+        registerButton.setId("registerButton");
 
         String valueOfName = name.getValue();
 

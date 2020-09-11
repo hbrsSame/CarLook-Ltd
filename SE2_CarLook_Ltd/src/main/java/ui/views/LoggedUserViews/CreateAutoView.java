@@ -33,10 +33,15 @@ public class CreateAutoView extends VerticalLayout implements View {
     private void setUp(){
         //------------------Komponenten erstellen----------------------
         TextField marke = ComponentFactory.createTextFieldWithCaption("Marke");
+        marke.setId("marke");
         TextField baujahr = ComponentFactory.createTextFieldWithCaption("Baujahr");
+        baujahr.setId("baujahr");
         RichTextArea beschreibung = new RichTextArea("Beschreibung");
+        beschreibung.setId("beschreibung");
         Button autoErstellenButton = ComponentFactory.createButtonWithCaption("Jetzt Ihr Auto veröffentlichen");
+        autoErstellenButton.setId("CreateButton");
         Button abbrechen = ComponentFactory.createButtonWithCaption("Abbrechen");
+        abbrechen.setId("CancelButton");
         Panel panelLayout = new Panel("Ein Auto veröffentlichen");
         VerticalLayout reihe1 = new VerticalLayout();
         VerticalLayout reihe2 = new VerticalLayout();
