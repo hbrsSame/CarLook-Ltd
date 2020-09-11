@@ -1,7 +1,0 @@
-ui\views\NotLoggedUserViews\LoginView.class
-utils\Status.class
-models\service\RegexPattern.class
-exceptions\RegexException.class
-ui\views\NotLoggedUserViews\RegisterView.class
-entity\Reservierung.class
-models\service\RegexChecker.class
