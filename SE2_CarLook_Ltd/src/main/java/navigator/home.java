@@ -39,6 +39,7 @@ public class home extends UI {
         pageNavigator.addView(Views.EingetrageneAutosView, ShowCreatedCarsView.class);
         pageNavigator.addView(Views.ShowBookingView, ShowBookingView.class);
         pageNavigator.addView(Views.BookingCarView, BookingCarView.class);
+        pageNavigator.addView(Views.DeleteAccountView, DeleteAccountView.class);
 
 
         //Eine Page als Startpage z.B. LoginView

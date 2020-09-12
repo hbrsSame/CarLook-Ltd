@@ -9,4 +9,5 @@ public class Views {
     public final static String RegisterView = "RegisterView";
     public final static String BookingCarView = "BookingCarView";
     public final static String ShowBookingView = "ShowBookingView";
+    public final static String DeleteAccountView = "DeleteAccountView";
 }

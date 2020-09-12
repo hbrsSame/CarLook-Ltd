@@ -48,6 +48,7 @@ public class MainView extends VerticalLayout implements View {
 
         // Suchfunktion Textfeld
         TextField SucheAutosFeld = new TextField();
+        SucheAutosFeld.setId("suchFeld");
         SucheAutosFeld.setPlaceholder("Nach Autos suchen");
         SucheAutosFeld.setHeight("60");
         SucheAutosFeld.setWidth("850");
